@@ -10,6 +10,7 @@ Symfony version: 5.1.8, bootstrap CDN, EasyAdmin, KNP paginator
 Ce projet permet de gérer l'administration via un CRUD de client et de leurs sites web accéssible à partir du dashboard de EasyAdmin, il affiche aussi via une pagination 15 sites web par pages sous forme de card référancé sur la plateforme ainsi que leurs informations, une barre de recherche et présente sur l'accueil du site et permet de faire une recherche soit par le nom du site soit par le nom du client.
 Une Icone est présente et permet de traduire l'ensemble du site du français en anglais.
 
+## Installation
 
 Télecharger le projet, installer les dépendance suivantes :
 
