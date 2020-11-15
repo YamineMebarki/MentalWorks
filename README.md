@@ -19,12 +19,12 @@ composer require admin knplabs/knp-paginator-bundle
 
 executer commandes suivantes :
 
-composer update
-créer .env
-database Myslq
-php bin/console doctrine:database:create
-php bin/console doctrine:migrations:migrate
-php bin/console doctrine:fixtures:load
+<p>composer update</p>
+<p>créer .env</p>
+database Myslq</p>
+<p>php bin/console doctrine:database:create</p>
+<p>php bin/console doctrine:migrations:migrate</p>
+<p>php bin/console doctrine:fixtures:load</p>
 
 Se connecter avec les identifiant suivant :
 
