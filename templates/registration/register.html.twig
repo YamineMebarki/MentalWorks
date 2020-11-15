@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Register{% endtrans %}{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="text-center jumbotron">
+        <h1 class="mb-5">{% trans %}Register{% endtrans %}</h1>
+        {{ form_start(registrationForm) }}
+        <div class="form-group">
+            {{ form_row(registrationForm.email, {'label': 'Email :', 'attr': {'class': 'form-control mb-5', 'placeholder': 'Veuillez entrer une adresse mail valide'}}) }}
+        </div>
+        <div class="form-group">
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password',
+            'attr':{
+                'class':'form-control',
+            }
+        }) }}
+        </div>
+        <div class="checkbox mb-3">
+            <label>
+                {% trans %}I accept the terms of use{% endtrans %} :
+                {{ form_row(registrationForm.agreeTerms, {'label': '    ', 'attr': {'class': 'mb-3', 'checked': ''}}) }}
+            </label>
+        </div>
+        <button type="submit" class="btn btn-success">{% trans %}Register{% endtrans %}</button>
+        {{ form_end(registrationForm) }}
+        </form>
+    </div>
+{% endblock %}

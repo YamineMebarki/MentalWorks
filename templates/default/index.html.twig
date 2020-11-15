@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}Home{% endtrans %}{% endblock %}
+
+{% block body %}
+    {% if count != 1 %}
+        <div class="navigation">
+            {{ knp_pagination_render(websites) }}
+        </div>
+    {% else %}
+        <a href="{{ path('home') }}"><button class="btn btn-primary btn-sm mt-2 left">Retour</button></a>
+    {% endif %}
+    <div class="text-center mt-5 mb-3">
+        <h1><b>{% trans %}List of sites{% endtrans %}</b></h1>
+        <h2>{% trans %}Currently {% endtrans %} {{ countWebsite }} site{% if countWebsite > 1 %}s{% endif %} {% trans %}registered{% endtrans %}</h2>
+        <form class="form-inline my-2 my-lg-0" method="post">
+            <input class="form-control mr-sm-2" type="text" name="search" placeholder="{% trans %}Search{% endtrans %}" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submitSearch" value="Search">{% trans %}Search{% endtrans %}</button>
+        </form>
+        <hr>
+        {% for website in websites %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ website.name }}</b></h5>
+                    <hr/>
+                    <p class="card-text">
+                        {{ website.content |raw }}
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">php version {{ website.php }}</small>
+                    </p>
+                    <a href="{{ website.url }}" target="_blank"><h5>{% trans %}Link to the site{% endtrans %}</h5></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if count != 1 %}
+        <hr/>
+        <div class="navigation mb-5">
+            {{ knp_pagination_render(websites) }}
+        </div>
+    {% endif %}
+{% endblock %}
